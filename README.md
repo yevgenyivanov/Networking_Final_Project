@@ -177,7 +177,11 @@ In this context, following the application of filters, it becomes evident that a
 
 
 
-##### Overall Result Deduction
+### Overall Result Deduction
 IMD(fig. 2) - we found out that the density of the traffic in the graph does not depend on the type of the message (audio/image/video/text), it means that if we send messages in the same way (i.e : forwarding batches or seperate messages ), it doesn't matter which type of message it is, the traffic will look like a burst (a one thick bar) ot like a seperate lines (thin bars). However, the length of the message does depend on the message type , as we've seen the difference between the text graph and the pics and video graphs. 
 PDF(fig. 3) - the probability for smaller imds is bigger due to the fact that small delays between messages does not depend on when the previous message was sent , they accurr naturally. another reason for why the probability for smaller imds is bigger is that when a message is too long, it needs to be divided to a batch of messages when it is captured. so in conclusion, the fact that in each of the PDF graphs there is a high probability for a very small imd (almost 0) is due to the fact that messages tend to have small delays between them naturaly , in comparison to bigger delays, which is why the PDF function acts like an exponential function.  
 CCDF(fig. 4)- the difference between the CCDF of message sizes of each one of the groups is determined by the range of the normalized message sizes of the group. each of the groups has a probability of 1 that a certein message size is bigger than zero , and a probability of 0 that a certein message size is bigger than 1, since all of the messages have a size that is between those values.
+
+
+## Tools
+The code was written with assistance from the ChatGPT 3.5 version AI model
