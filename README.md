@@ -64,16 +64,18 @@ During our process of generating graphs, we differentiated between two distinct 
 
 2. The second scenario considers an attacked user who might be active in multiple wiretapped IM groups simultaneously or consecutively. Here, we also considered two scenarios, taking noise into account, similar to the first case.
 
-#### Case 1
-##### Without noise
+### Case 1
+### Without Noise
 
-and for all the groups, we have a graph that shows the Complementary Cumulative Distribution Function (CCDF) for normalized message size distributions across various message types (fig. 4): distinct lines or curves on the graph correspond to different message types, allowing for a comparative analysis of their IM Size distributions.
+For each of the groups, we present a graph displaying the Complementary Cumulative Distribution Function (CCDF) representing normalized message size distributions across different message types (see fig. 4 in the paper). Each unique line or curve on the graph corresponds to a specific message type, enabling a comparative analysis of their respective IM Size distributions.
 
 
-## 1. Inter-Message-Delay Graphs :
-as we can see, the packet length changes over time , in dependency of the way we've sent the messages in each interval. for example , in the text group graph, we can see that most of the messages were sent in batches or "bursts", since we did a lot of forwarding batches (the attacked user sends a group of messages that were sent in other whatssapp groups), and the length of most of the packets is smaller than 500. As opposed to the text group graph ,in the pics and video groups graphs, the length of most of the packets is between 2500 and 3000.
+### 1. Inter-Message-Delay Graphs :
+As observed, the packet length exhibits variations over time, influenced by the manner in which messages were transmitted within each interval. For instance, in the textual group graph, a noticeable trend emerges where messages were predominantly dispatched in clusters or "bursts." This pattern arises due to the prevalence of forwarding batches, where the attacked user shares a set of messages previously transmitted in other WhatsApp groups. Notably, the majority of packet lengths in this scenario fall below 500.  
+  
+In contrast, examining the graphs for the image and video groups reveals a contrasting pattern. Here, a significant portion of packet lengths ranges between 2500 and 3000, signifying a distinct behavior compared to the textual group.
 
-In the pics graph, we can see that most of the messages were sent in groups or "bursts" , similar to the text graph, but in the video graph , most of the messages were sent seperately , i.e, one video at a time (since the bars are thinner in the video graph).
+In the graphics related to pictures, a prominent observation emerges: the majority of messages were dispatched in clusters or "bursts," akin to the pattern seen in the textual graph. However, a contrasting scenario unfolds in the video graph, where a distinct trend emerges. Here, the bulk of messages were transmitted individually, with each bar representing a single video, resulting in narrower bars within the video graph.
 
 examples of IMD graphs - fig. 2:
 
@@ -82,7 +84,7 @@ examples of IMD graphs - fig. 2:
 <img src="resources/readme_pictures/without_noise/IMD_pics_only_.png"  width="70%">
 
 
-## 2. PDF:
+### 2. PDF:
 in the pdf graphs, the main reason for the distribution we've got is the way we've sent the messages. for example, in the pics and text groups, we've sent a lot of the messages together (in the text group- by forwarding , and in the pics- as a group of pictures), so the probability of big imds in those groups is smaller than the probability of big imds in the video group , since in this group, we've sent most of the videos seperately and not as a batch, so that the probability of having packets thart their IMD is bigger than 0 is bigger. this is why the PDF distribution is different in the video graph (there are peaks after x=0 too).
 
 examples of PDF graphs - fig. 3:
@@ -92,7 +94,7 @@ examples of PDF graphs - fig. 3:
 <img src="resources/readme_pictures/without_noise/PDF_pics_only_.png"  width="70%">
 
 
-## 3. CCDF:
+### 3. CCDF:
 ccdf explanation: according to the definition of CCDF, the curve depicts the probability that an IM Size (normalized message size) of the group (this is the random variable x) is bigger than a given value of the x-axis.
 
 we can see that for all the groups, when x=0, the probability that the message size is bigger than x is 1, since all of the messages wev've sent (normalized) have a size bigger than 0. and as x grows, we can see that each curve grows smaller (each one with respect to the frequency of the message sizes for the group), since these values are similar to the values of the normalized message sizes. and when x=1, the probability that the message size is bigger than x is zero , since all of the messages wev've sent (normalized) have a size smaller than the maximum size of message sizes (normalized).  
@@ -102,7 +104,7 @@ example of CCDF graph - fig.4:
 <img src="resources/readme_pictures/without_noise/CCDF.png"  width="70%">
 
 
-##### With noise
+### With Noise
 
 ***note - in this part, we've only recorded 2 types of groups - texts and pictures, since we've seen in the previous part (without noise), that the traffic on the text and audio groups and on the pictures and video groups is pretty simillar , in both packet lengths ranges and shape.
 
@@ -135,29 +137,38 @@ PDF - noise , filtered:
 as we can see, in fig. 2 with the filtering , the packet lengths are smaller , as we have filtered some of the traffic (the packets with the protocols that aren't the whatssapp or spotify protocols), but almost all of the traffic is still seen as "bursts", but this time , as we can see in fig. 3 , the IMD range is wider , due to the fact that traffic was reduced.
 
 
-#### Case 2
+### Case 2
 
 this is the case where the attacked user may be active in several IM groups simultaneously.
 just like the first case, there are two stages for this case - one without noise and one with noise
 
-##### Without noise
+### Without Noise
 
-IMD - no noise
+### IMD
 
 <img src="resources/readme_pictures/without_noise/IMD_alltogether.png"  width="70%">
 
 
-PDF - no noise
+### PDF
 
 <img src="resources/readme_pictures/without_noise/PDF_alltogether.png"  width="70%">
 
 as we can see here, the traffic when the attacked user is active in several IM groups simultaneously (with no noise) is simillar to the traffic of case 1 (no simultaneously) with no noise of the pics and video groups, in regards to the range of the packet length, since it combines the traffic of all the groups , so that the packets with the biggest length are the ones from the pics and video groups (of course that there is also the chance of a very long text message). In addition , the sending ratio is simillar to the graphs in case 1 with no noise,  since we've tried to make a comparison between these graphs that is independent of the sending rate (so that we will actully see the difference in the traffic in dependence to the groups the user uses).
 
 
-##### With noise
+### With noise
 as we explained in case 1 - with noise , we filtered the traffic with "tls && tcp" since we can't deduce enough conclusions from the unfiltered traffic. After the filtering , we got graphs that has a simillar behavior and shape to the graphs in this case (using groups simultaniously), the difference is that in the IMD graph , the graph with noise has more bursts in the traffic (cases of messages with smaller IMDs). 
 the PDF graph though, shows an simillar distibution as the PDF with no noise , but the graph with the noise has a smaller range of IMDs , since the packets has very small IMDs (the maximum is about 0.2 in seconds).  
-add graphs of simoltaniously with noise - IMDs and PDF
+Here we show how additional filtering will show more coherse results, from which additional information may be deduced.
+### IMD & PDF- before filtering
+<img src="resources/readme_pictures/with_noise/IMD_spotify_all_together_.png" width="70%">  
+
+<img src="resources/readme_pictures/with_noise/PDF_spotify_all_together_.png" width="70%">  
+
+It's improtant to note that in this scenario, due to the high density of the IMD with the background noise, the arrangement and placement of the inter-message delays for the PDF graph, leads to 0.
+This is a trivial observation since the IMDs are close to 0 when the traffic noise, which is unrelated to the relevant traffic, is causing a mix of packet-bursts. 
+
+
 
 
 ##### Overall Result Deduction
