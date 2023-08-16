@@ -39,7 +39,7 @@ python ./src/main.py
 The script generates the following types of graphs from interpreted CSV files:
 PDF and IMD graphs will generate separatley per each .csv file, while the CCDF will be generated for all .csv files provided (Take this into notice when running the script)
 
-**PDF Function Graph:**
+**PDF Function Graph:** \n
 The PDF (Probability Density Function) graph depicts the probability density of inter-message delays within network packet data. This graph presents a confined probability density where captured packets with an Inter-Message-Delay greater than 0 tend towards zero probability of containing SIM program content.
 
 **Packet Length relative to Inter-Message-Delay (IMD) over Time Graph:**
