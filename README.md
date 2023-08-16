@@ -42,9 +42,11 @@ The CCDF graph illustrates the complementary cumulative distribution of normaliz
 
 ## Explained Examples
 
-#### CASE 1
-this is the case where the attacked user is always active in (at most) a single IM group
-there are two stages for this case - one without noise (i.e, while capturing packets of whatsapp in wireshark, there is no other website that is used) , and one with noise (i.e, while capturing packets of whatsapp in wireshark, we are using Spotify in the background).
+### Two distinct cases
+During our graph generation process we made a distinction between two cases:
+- The first:
+  The attacked user is always active in (at most) a single IM group
+  there are two stages for this case - one without noise (i.e, while capturing packets of whatsapp in wireshark, there is no other website that is used) , and one with noise (i.e, while capturing         packets of whatsapp in wireshark, we are using Spotify in the background).
 
 ## without noise
 
