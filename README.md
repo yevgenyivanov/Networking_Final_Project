@@ -31,15 +31,16 @@ python ./src/main.py
 
 ## Graph Generation
 The script generates the following types of graphs from interpreted CSV files:
+PDF and IMD graphs will generate separatley per each .csv file, while the CCDF will be generated for all .csv files provided (Take this into notice when running the script)
 
 - PDF Function Graph
-The PDF (Probability Density Function) function graph displays the probability density of inter-message delays within network packet data.
+The PDF (Probability Density Function) graph depicts the probability density of inter-message delays within network packet data. This graph presents a confined probability density where captured packets with an Inter-Message-Delay greater than 0 tend towards zero probability of containing SIM program content.
 
-- Inter-Message-Delay (IMD) Graph
-The IMD graph represents packet length over time intervals, providing insights into network traffic patterns.
+- Packet Length relative to Inter-Message-Delay (IMD) over Time Graph
+This graph illustrates how packet length varies across time intervals, offering valuable insights into network traffic patterns. Analyzing sequences of SIM communication, as outlined in the paper, reveals that over a specific time frame, the density and sizes of transmitted packets distinctly suggest the transmission of different message types (such as audio, text, photos, videos, or documents) by the SIM program.
 
 - Complementary Cumulative Distribution Function (CCDF) Graph
-The CCDF graph illustrates the complementary cumulative distribution of normalized message sizes, helping analyze message size distribution.
+The CCDF graph illustrates the complementary cumulative distribution of normalized message sizes, helping analyze message size distribution. By normalizing each range of packet lengths (provided in each .csv file) we calculate the Complementary CDF probability that the next packet in the sequence is unrelated to the previous one sent by the SIM. This graph shows that as the normalised size of the packet strives to 1 the probability of the un-relevance strives to 0.
 
 ## Notes
  - Please ensure that all columns required by the script's methods are present and correctly named in the CSV files used for analysis. The script depends on specific column names for accurate graph generation.
