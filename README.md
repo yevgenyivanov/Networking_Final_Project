@@ -39,13 +39,13 @@ python ./src/main.py
 The script generates the following types of graphs from interpreted CSV files:
 PDF and IMD graphs will generate separatley per each .csv file, while the CCDF will be generated for all .csv files provided (Take this into notice when running the script)
 
-**PDF Function Graph:**  
+###### **PDF Function Graph:**  
 The PDF (Probability Density Function) graph depicts the probability density of inter-message delays within network packet data. This graph presents a confined probability density where captured packets with an Inter-Message-Delay greater than 0 tend towards zero probability of containing SIM program content.
 
-**Packet Length relative to Inter-Message-Delay (IMD) over Time Graph:**  
+###### **Packet Length relative to Inter-Message-Delay (IMD) over Time Graph:**  
 This graph illustrates how packet length varies across time intervals, offering valuable insights into network traffic patterns. Analyzing sequences of SIM communication, as outlined in the paper, reveals that over a specific time frame, the density and sizes of transmitted packets distinctly suggest the transmission of different message types (such as audio, text, photos, videos, or documents) by the SIM program.
 
-**Complementary Cumulative Distribution Function (CCDF) Graph:**  
+###### **Complementary Cumulative Distribution Function (CCDF) Graph:**  
 The CCDF graph illustrates the complementary cumulative distribution of normalized message sizes, aiding in the analysis of message size distribution. Through the normalization of packet lengths in each .csv file range, we calculate the Complementary CDF probability, indicating the likelihood that the subsequent packet in the sequence is not related to the previous one sent by the SIM. This graph demonstrates that as the normalized packet size approaches 1, the probability of irrelevance approaches 0.
 
 In accordance with the CCDF definition, the curve portrays the probability that a Group's IM Size (normalized message size), represented by the random variable x, exceeds a given value on the x-axis.
