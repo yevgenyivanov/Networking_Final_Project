@@ -59,7 +59,7 @@ and for all the groups, we have a graph that shows the Complementary Cumulative 
 according to the definition of CCDF, the curve depicts the probability that an IM Size (normalized message size) of the group (this is the random variable x) is bigger than a given value of the x-axis
 
 
-## 1. fig. 2 :
+## 1. Inter-Message-Delay Graphs :
 as we can see, the packet length changes over time , in dependency of the way we've sent the messages in each interval. for example , in the text group graph, we can see that most of the messages were sent in batches or "bursts", since we did a lot of forwarding batches (the attacked user sends a group of messages that were sent in other whatssapp groups), and the length of most of the packets is smaller than 500. As opposed to the text group graph ,in the pics and video groups graphs, the length of most of the packets is between 2500 and 3000.
 
 In the pics graph, we can see that most of the messages were sent in groups or "bursts" , similar to the text graph, but in the video graph , most of the messages were sent seperately , i.e, one video at a time (since the bars are thinner in the video graph).
@@ -68,7 +68,7 @@ examples of graphes - fig. 2:
 
 <img src="resources/readme_pictures/without_noise/IMD_text_only_.png"  width="70%">
 
-<img src="resources/readme_pictures/without_noise/pics_only.jpeg"  width="40%">
+<img src="resources/readme_pictures/without_noise/IMD_pics_only_.png"  width="70%">
 
 
 ## 2. fig. 3:
@@ -76,9 +76,9 @@ in the pdf graphs, the main reason for the distribution we've got is the way we'
 
 examples of graphes - fig. 3:
 
-<img src="text_only_fig3.jpeg"  width="40%">
+<img src="resources/readme_pictures/without_noise/PDF_text_only_.png"  width="70%">
 
-<img src="pics_only_fig3.jpeg"  width="40%">
+<img src="resources/readme_pictures/without_noise/PDF_pics_only_.png"  width="70%">
 
 
 ## 3. fig. 4:
@@ -87,7 +87,7 @@ ccdf explanation: according to the definition of CCDF, the curve depicts the pro
 we can see that for all the groups, when x=0, the probability that the message size is bigger than x is 1, since all of the messages wev've sent (normalized) have a size bigger than 0. and as x grows, we can see that each curve grows smaller (each one with respect to the frequency of the message sizes for the group), since these values are similar to the values of the normalized message sizes. and when x=1, the probability that the message size is bigger than x is zero , since all of the messages wev've sent (normalized) have a size smaller than the maximum size of message sizes (normalized).
 
 
-<img src="ccdf_no_noise.jpeg"  width="40%">
+<img src="resources/readme_pictures/without_noise/CCDF.png"  width="70%">
 
 
 ## with noise 
@@ -98,11 +98,11 @@ as we've mentioned before, the meaning of noise is capturing packets of whatsapp
 
 fig. 2 - noise , no filtered: 
 
-<img src="textonly_noise.jpeg"  width="40%">
+<img src="resources/readme_pictures/with_noise/IMD_spotify_text_all_protocols.png"  width="70%">
 
 fig. 3 - noise , no filtered: 
 
-<img src="pics_noise.jpeg"  width="40%">
+<img src="resources/readme_pictures/with_noise/PDF_spoitfy_pics_all_protocols.png"  width="70%">
 
 
 as we can see from the fig. 2 (packet length) above, since we didn't apply any filtering on the traffic , all of the packets are seen as "bursts" , hence the ranges of IMD are really small and close to 0 (this is due to the fact the Spotify keeps sending packets non-stop ,as long as we keep using it in the background). therefore, in the fig. 3 (PDF graph), we can see that without the filtering , we got a lot of packets with a very small range of IMD values , which made the PDF graph have an equal probability for each IMD of the packets ,and it wasn't able to detect the IMD values since they are very simillar.
@@ -111,11 +111,11 @@ this is why we decided to filter the traffic : the filters we have applied in th
 
 fig. 2 - noise , filtered: 
 
-<img src="pictures_tcp_tls_fig2.jpeg"  width="40%">
+<img src="resources/readme_pictures/with_noise/applied_filters/IMD_picturesonly_spotify_tls_or_tcp_.png"  width="70%">
 
 fig. 3 - noise , filtered: 
 
-<img src="pictures_tcp_tls_fig3.jpeg"  width="40%">
+<img src="resources/readme_pictures/with_noise/applied_filters/PDF_picturesonly_spotify_tls_or_tcp_.png"  width="70%">
 
 
 
@@ -132,12 +132,12 @@ just like the first case, there are two stages for this case - one without noise
 
 fig.2 - no noise
 
-<img src="no_noise_fig2.jpeg"  width="40%">
+<img src="resources/readme_pictures/without_noise/IMD_alltogether.png"  width="70%">
 
 
 fig. 3 - no noise
 
-<img src="all_no_noise_fig3.jpeg"  width="40%">
+<img src="resources/readme_pictures/without_noise/PDF_alltogether.png"  width="70%">
 
 as we can see here, the traffic when the attacked user is active in several IM groups simultaneously (with no noise) is simillar to the traffic of case 1 (no simultaneously) with no noise of the pics and video groups, in regards to the range of the packet length, since it combines the traffic of all the groups , so that the packets with the biggest length are the ones from the pics and video groups (of course that there is also the chance of a very long text message). In addition , the sending ratio is simillar to the graphs in case 1 with no noise,  since we've tried to make a comparison between these graphs that is independent of the sending rate (so that we will actully see the difference in the traffic in dependence to the groups the user uses).
 
