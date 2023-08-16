@@ -165,8 +165,14 @@ Here we show how additional filtering will show more coherse results, from which
 
 <img src="resources/readme_pictures/with_noise/PDF_spotify_all_together_.png" width="70%">  
 
-It's improtant to note that in this scenario, due to the high density of the IMD with the background noise, the arrangement and placement of the inter-message delays for the PDF graph, leads to 0.
-This is a trivial observation since the IMDs are close to 0 when the traffic noise, which is unrelated to the relevant traffic, is causing a mix of packet-bursts. 
+It's essential to highlight that in this particular scenario, the substantial concentration of Inter-Message Delays (IMDs) alongside the background noise contributes to a PDF graph arrangement where the values converge to 0. This observation is self-evident as the IMDs approach nearly zero when the traffic noise—unassociated with the pertinent traffic—creates a blend of packet bursts.
+Those deductions prompted us to apply a filtration of TCP and TLS (protocols used by WhatsApp and Spotify, which we used for the noise)
+
+<img src="resources/readme_pictures/with_noise/applied_filters/IMD_spotify_all_together_filter_.png" width="70%">  
+  
+<img src="resources/readme_pictures/with_noise/applied_filters/PDF_spotify_all_together_filter_.png" width="70%">  
+
+In this context, following the application of filters, it becomes evident that a PDF function now exhibits a more rational pattern, aligning with the IMDs showcased in the initial graph. This refined PDF function can serve as a foundation for subsequent calculations, particularly if additional filtration steps are implemented.
 
 
 
