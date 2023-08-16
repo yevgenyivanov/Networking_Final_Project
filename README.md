@@ -66,7 +66,7 @@ In the pics graph, we can see that most of the messages were sent in groups or "
 
 examples of graphes - fig. 2:
 
-<img src="resources/readme_pictures/without_noise/IMD_text_only_.png"  width="40%">
+<img src="resources/readme_pictures/without_noise/IMD_text_only_.png"  width="70%">
 
 <img src="resources/readme_pictures/without_noise/pics_only.jpeg"  width="40%">
 
