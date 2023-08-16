@@ -29,22 +29,29 @@ python ./src/main.py
 ```
 4. To see the generated graphs, check the ```results/``` folder
 
+## Notes
+ - Please ensure that the two columns required for the script to work: ['Time'] and ['Length'] are present and correctly named(as shown here) in the CSV files which are used for analysis. The script depends on specific column names.
+ - The script deletes *all* files and directories that may be present in the ```results/``` folder. If you need to make any backups, move the files to a different, *external* directory.
+    
+
+
 ## Graph Generation
 The script generates the following types of graphs from interpreted CSV files:
 PDF and IMD graphs will generate separatley per each .csv file, while the CCDF will be generated for all .csv files provided (Take this into notice when running the script)
 
-- PDF Function Graph
+- PDF Function Graph:
 The PDF (Probability Density Function) graph depicts the probability density of inter-message delays within network packet data. This graph presents a confined probability density where captured packets with an Inter-Message-Delay greater than 0 tend towards zero probability of containing SIM program content.
 
-- Packet Length relative to Inter-Message-Delay (IMD) over Time Graph
+- Packet Length relative to Inter-Message-Delay (IMD) over Time Graph:
 This graph illustrates how packet length varies across time intervals, offering valuable insights into network traffic patterns. Analyzing sequences of SIM communication, as outlined in the paper, reveals that over a specific time frame, the density and sizes of transmitted packets distinctly suggest the transmission of different message types (such as audio, text, photos, videos, or documents) by the SIM program.
 
-- Complementary Cumulative Distribution Function (CCDF) Graph
-The CCDF graph illustrates the complementary cumulative distribution of normalized message sizes, helping analyze message size distribution. By normalizing each range of packet lengths (provided in each .csv file) we calculate the Complementary CDF probability that the next packet in the sequence is unrelated to the previous one sent by the SIM. This graph shows that as the normalised size of the packet strives to 1 the probability of the un-relevance strives to 0.
+- Complementary Cumulative Distribution Function (CCDF) Graph:
+The CCDF graph illustrates the complementary cumulative distribution of normalized message sizes, aiding in the analysis of message size distribution. Through the normalization of packet lengths in each .csv file range, we calculate the Complementary CDF probability, indicating the likelihood that the subsequent packet in the sequence is not related to the previous one sent by the SIM. This graph demonstrates that as the normalized packet size approaches 1, the probability of irrelevance approaches 0.
 
-## Notes
- - Please ensure that all columns required by the script's methods are present and correctly named in the CSV files used for analysis. The script depends on specific column names for accurate graph generation.
- - The script deletes *all* files and directories that may be present in the ```results/``` folder. If you need to make any backups, move the files to a different, *external* directory.
+In accordance with the CCDF definition, the curve portrays the probability that a Group's IM Size (normalized message size), represented by the random variable x, exceeds a given value on the x-axis.
+
+Those graphs are in accordance to figures 2,3 and 4 in the paper.
+
 
 ## Explained Examples
 
@@ -56,17 +63,12 @@ During our graph generation process we made a distinction between two cases:
 - The second case:
   The attacked user may be active (simultaniously or consecutively) in multiple of the wiretapped IM groups. Here we also took into account two scenarios with and without noise (similarly to the first case)
 
-## without noise
-
-### for each IM group , we focused on two graphs:
-1. fig. 2 in paper - graph that shows how the packet lengths changes over time, when time (in seconds) is the period where the group was monitored by the attacker (one of us), while the users of the group made communication (each group has its own communication). notice that in this case, we monitor each group seperately.
-   
-2. fig. 3 in paper graph that shows the distribution of Inter Message Delays, represented along the x-axis in seconds. x-axis: Inter Message Delay (imd) is the difference in time between sequencial messages. y-axis: indicates the likelihood of observing specific Inter Message Delays within certain intervals.
-
+#### Case 1
+##### Without noise
 
 and for all the groups, we have a graph that shows the Complementary Cumulative Distribution Function (CCDF) for normalized message size distributions across various message types (fig. 4): distinct lines or curves on the graph correspond to different message types, allowing for a comparative analysis of their IM Size distributions.
 
-according to the definition of CCDF, the curve depicts the probability that an IM Size (normalized message size) of the group (this is the random variable x) is bigger than a given value of the x-axis
+
 
 
 ## 1. Inter-Message-Delay Graphs :
