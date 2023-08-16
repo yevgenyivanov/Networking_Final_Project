@@ -1,6 +1,10 @@
-# Python Script README
+# Analysis of Attacks on Secure Messaging Applications (SIMs)
+This project is made after the paper 'Practical Traffic Analysis Attacks on Secure Messaging Applications' written by Alireza Bahramali∗ , Amir Houmansadr∗ , Ramin Soltani† , Dennis Goeckel‡ , and Don Towsley∗
 
-This README file provides an overview of a Python script designed to analyze network packet data and generate various types of graphs. The script utilizes the Scapy library for network packet processing, pandas for data manipulation, numpy for numerical computations, and matplotlib for graph generation. The script reads data from CSV files containing network packet information and generates PDF function graphs, Inter-Message-Delay (IMD) graphs, and Complementary Cumulative Distribution Function (CCDF) graphs.
+The main focus of this project is to offer a brief overview and key-point to the aforementioned paper, and dissect graphs and data generated based on sniffed .pcap files (using Wireshark utility tool) which will late be used as .csv files (which were created by converting the .pcap files using Wireshark  as well)
+A python script will be used in order generate various types of graphs by taking the relevant network packet data- 
+by utilizing the 'Scapy' library for network packet processing, 'pandas' for data manipulation, 'numpy' for numerical computations, and 'matplotlib' for graph generation. 
+The script reads data from CSV files containing network packet information and generates PDF function graphs, Inter-Message-Delay (IMD) graphs, and Complementary Cumulative Distribution Function (CCDF) graphs. Further elaboration on those graphs will be provided further below.
 
 ## Prerequisites
 
@@ -13,6 +17,7 @@ Before using the Python script, ensure you have the following prerequisites:
 pip install scapy pandas numpy matplotlib
 ```
 3. Placed .csv files inside the ```resources/csvs/``` directory
+4. If you have only a .pcap file, you can convert that file to a readable .csv file for the script using this quick guide: https://www.linkedin.com/advice/1/how-do-you-export-share-network-analysis-results#:~:text=To%20do%20that%2C%20you%20can,levels%20of%20detail%20and%20structure.
 ## How to use
 To use the Python script, follow these steps:
 
@@ -42,11 +47,13 @@ The CCDF graph illustrates the complementary cumulative distribution of normaliz
 
 ## Explained Examples
 
-### Two distinct cases
+### Two observation cases
 During our graph generation process we made a distinction between two cases:
-- The first:
-  The attacked user is always active in (at most) a single IM group
+- The first case:
+  The attacked user is always active in (at most) a single wiretapped IM group
   there are two stages for this case - one without noise (i.e, while capturing packets of whatsapp in wireshark, there is no other website that is used) , and one with noise (i.e, while capturing         packets of whatsapp in wireshark, we are using Spotify in the background).
+- The second case:
+  The attacked user may be active (simultaniously or consecutively) in multiple of the wiretapped IM groups. Here we also took into account two scenarios with and without noise (similarly to the first case)
 
 ## without noise
 
