@@ -121,7 +121,7 @@ fig. 3 - noise , not filtered:
 
 as we can see from the IMD (packet length) above, since we didn't apply any filtering on the traffic , all of the packets are seen as "bursts" , hence the ranges of IMD are really small and close to 0 (this is due to the fact the Spotify keeps sending packets non-stop ,as long as we keep using it in the background). therefore, in the PDF graph, we can see that without the filtering , we got a lot of packets with a very small range of IMD values , which made the PDF graph have an equal probability for each IMD of the packets ,and it wasn't able to detect the IMD values since they are very simillar.
 
-this is why we decided to filter the traffic : the filters we have applied in this part (as we've mentioned in the documentation) are : tls || tcp || udp || quic , since tls is the protocol of whatssapp and all the others are protocols of Spotify .
+this is why we decided to filter the traffic : the filters we have applied in this part (as we've mentioned in the documentation) are : tls || tcp , since tls is the protocol of whatssapp and all the others are protocols of Spotify .
 
 IMD - noise , filtered: 
 
