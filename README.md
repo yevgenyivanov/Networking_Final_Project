@@ -91,7 +91,7 @@ examples of PDF graphs - fig. 3:
 
 <img src="resources/readme_pictures/without_noise/PDF_text_only_.png"  width="70%">
 
-<img src="resources/readme_pictures/without_noise/PDF_pics_only_.png"  width="70%">
+<img src="resources/readme_pictures/without_noise/PDF_video_only_.png"  width="70%">
 
 
 ### 3. CCDF:
